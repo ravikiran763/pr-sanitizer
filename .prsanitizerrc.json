@@ -1,0 +1,6 @@
+{
+  "offensiveLanguageCheck": true,
+  "suggestImprovementTips": true,
+  "politenessLevel": "high",
+  "suggestionStyle": "concise"
+}

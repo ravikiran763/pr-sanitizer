@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PR Friendly](https://img.shields.io/badge/code%20reviews-safe%20%26%20constructive-brightgreen)](https://github.com/your-org/pr-sanitizer)
 
-> **Review better, merge smarter.**  
+> **Review better, merge smarter.**
 > `pr-sanitizer` automatically scans PR review comments for offensive language, vague feedback, or harsh tone—and rewrites them into constructive, helpful suggestions.
 
 ---
@@ -41,3 +41,17 @@ jobs:
         uses: your-org/pr-sanitizer@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+```
+
+🔧 Option 2: Using NPM
+
+npm install --save-dev @types/minimist
+
+npm run build
+
+node dist/cli.js --repo your-org/your-repo --pr 123 --token ghp_XXXX
+
+
+You can generate one at https://github.com/settings/tokens (select the repo scope for private repos).
+node dist/cli.js --repo ravikiran763/hello-world-java --pr 1 --token ghp_XXXX
+```

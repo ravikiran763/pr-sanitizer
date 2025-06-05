@@ -1,0 +1,9 @@
+name: PR Sanitizer
+description: Sanitize PR review comments for offensive language and provide improvement tips.
+inputs:
+  github-token:
+    description: GitHub token
+    required: true
+runs:
+  using: "node20"
+  main: "dist/cli.js"

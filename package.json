@@ -1,0 +1,26 @@
+{
+  "name": "pr-sanitizer",
+  "version": "1.0.0",
+  "description": "Sanitizes PR review comments for offensive content and provides constructive suggestions.",
+  "main": "dist/cli.js",
+  "bin": {
+    "pr-sanitizer": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/cli.ts",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.0",
+    "dotenv": "^16.0.0",
+    "minimist": "^1.2.8"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^22.15.29",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.3"
+  },
+  "license": "MIT"
+}

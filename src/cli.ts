@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { sanitizeComments } from "./sanitizer";
+import { sanitizeComments } from "./sanitizer-ai";
 import minimist from "minimist";
 
 const args = minimist(process.argv.slice(2));
@@ -15,5 +15,6 @@ sanitizeComments({
   owner,
   repo,
   prNumber: parseInt(args.pr),
-  token: args.token
+  token: args.token,
+  openaiApiKey: args.openaiApiKey
 });

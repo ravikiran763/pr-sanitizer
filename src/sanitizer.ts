@@ -41,16 +41,23 @@ export async function sanitizeComments(params: {
       console.log(`Sanitized: ${sanitized}`);
       if (tip) console.log(`💡 Tip: ${tip}`);
 
-      await octokit.issues.createComment({
-        owner,
-        repo,
-        issue_number: prNumber,
-        body: `@${review.user?.login} — Here's a suggested revision of your review comment:
-
-> ${sanitized}${tip ? `
-
-💡 *Tip for author:* ${tip}` : ""}`
-      });
+//       await octokit.issues.updateReviewComment({
+//         owner,
+//         repo,
+//         issue_number: prNumber,
+//         body: `@${review.user?.login} — Here's a suggested revision of your review comment:
+//
+// > ${sanitized}${tip ? `
+//
+// 💡 *Tip for author:* ${tip}` : ""}`
+//       });
+        const newBody = `${sanitized}${tip ? `\n\n💡 *Tip for author:* ${tip}` : ""}`;
+        await octokit.pulls.updateReviewComment({
+            owner,
+            repo,
+            comment_id: review.id,
+            body: newBody
+          });
     }
   }
 }

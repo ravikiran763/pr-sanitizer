@@ -8,6 +8,7 @@ const [owner, repo] = (args.repo || "").split("/");
 
 if (!args.repo || !args.pr || !args.token) {
   console.error("Usage: pr-sanitizer --repo owner/repo --pr 1 --token YOUR_GITHUB_TOKEN", args);
+  console.error(process.argv);
   process.exit(1);
 }
 

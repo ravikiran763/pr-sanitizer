@@ -84,7 +84,9 @@ export async function sanitizeComments(params: {
       if (tip) console.log(`💡 Tip: ${tip}`);
       if (recommendation) console.log(`💡 Recommendation: ${recommendation}`);
 
-      const newBody = `${sanitized}${tip ? `\n\n💡 *Tip for author:* ${tip}` : ""}${recommendation ? `\n\n💡 *Recommendation for author:* ${recommendation}` : ""}`;
+      const newBody = `${sanitized}` +
+        `${tip ? `\n\n💡 *Tip for author:* ${tip}` : ""}` +
+        `${recommendation ? `\n\n💡 *Recommendation for author:*\n\`\`\`\n${recommendation}\n\`\`\`` : ""}`;
 
       await octokit.pulls.updateReviewComment({
         owner,

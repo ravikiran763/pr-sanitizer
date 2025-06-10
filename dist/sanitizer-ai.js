@@ -61,7 +61,6 @@ async function sanitizeComments(params) {
         if (!body)
             continue;
         const lineContents = await getCommentedLineContent(octokit, owner, repo, review);
-        console.log(`🔁 lineContents ${lineContents}`);
         const { rewrite, sanitized, tip, recommendation } = await analyzeAndRewriteCommentGemini(genAI, body, lineContents);
         if (rewrite && sanitized) {
             console.log(`🔁 Rewriting comment by ${review.user?.login}`);
@@ -71,7 +70,9 @@ async function sanitizeComments(params) {
                 console.log(`💡 Tip: ${tip}`);
             if (recommendation)
                 console.log(`💡 Recommendation: ${recommendation}`);
-            const newBody = `${sanitized}${tip ? `\n\n💡 *Tip for author:* ${tip}` : ""}${recommendation ? `\n\n💡 *Recommendation for author:* ${recommendation}` : ""}`;
+            const newBody = `${sanitized}` +
+                `${tip ? `\n\n💡 *Tip for author:* ${tip}` : ""}` +
+                `${recommendation ? `\n\n💡 *Recommendation for author:*\n\`\`\`\n${recommendation}\n\`\`\`` : ""}`;
             await octokit.pulls.updateReviewComment({
                 owner,
                 repo,

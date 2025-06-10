@@ -3,13 +3,13 @@ description: Rewrites offensive PR review comments using OpenAI and GitHub API
 author: ravikiran763
 
 inputs:
-  github_token:
+  token:
     description: GitHub token to access PR review comments
     required: true
-  openai_api_key:
+  openaiApiKey:
     description: OpenAI API key to rewrite comments
     required: true
-  pr_number:
+  pr:
     description: Pull request number to sanitize
     required: true
   repo:
@@ -18,4 +18,4 @@ inputs:
 
 runs:
   using: node20
-  main: dist/index.js
+  main: dist/cli.js

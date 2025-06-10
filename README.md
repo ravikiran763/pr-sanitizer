@@ -55,3 +55,6 @@ node dist/cli.js --repo your-org/your-repo --pr 123 --token ghp_XXXX
 You can generate one at https://github.com/settings/tokens (select the repo scope for private repos).
 node dist/cli.js --repo ravikiran763/hello-world-java --pr 1 --token ghp_XXXX
 ```
+
+git tag v1
+git push origin v1

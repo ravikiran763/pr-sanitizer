@@ -1,9 +1,21 @@
-name: PR Sanitizer
-description: Sanitize PR review comments for offensive language and provide improvement tips.
+name: PR Comment Sanitizer
+description: Rewrites offensive PR review comments using OpenAI and GitHub API
+author: ravikiran763
+
 inputs:
-  github-token:
-    description: GitHub token
+  github_token:
+    description: GitHub token to access PR review comments
     required: true
+  openai_api_key:
+    description: OpenAI API key to rewrite comments
+    required: true
+  pr_number:
+    description: Pull request number to sanitize
+    required: true
+  repo:
+    description: full repository name (e.g., owner/repo)
+    required: true
+
 runs:
-  using: "node20"
-  main: "dist/cli.js"
+  using: node20
+  main: dist/index.js

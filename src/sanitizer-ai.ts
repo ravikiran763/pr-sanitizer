@@ -74,7 +74,6 @@ export async function sanitizeComments(params: {
     if (!body) continue;
 
     const lineContents = await getCommentedLineContent(octokit, owner, repo, review);
-    console.log(`🔁 lineContents ${lineContents}`);
 
     const { rewrite, sanitized, tip, recommendation } = await analyzeAndRewriteCommentGemini(genAI, body, lineContents);
 

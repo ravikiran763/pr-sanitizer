@@ -9,7 +9,7 @@ export async function analyzeAndRewriteCommentGemini(
   lineContents: string
 ): Promise<{ rewrite: boolean; sanitized?: string; tip?: string; recommendation?: string }> {
   const prompt = `
-You're a professional and respectful code reviewer. Review the following GitHub PR comment and context where this comment was made and decide whether it needs to be rewritten to improve clarity, tone, or professionalism:
+You're a professional and respectful code reviewer. Review the following GitHub PR comment and context where this comment was made and decide whether it needs to be rewritten to improve clarity, tone, mask PI information in the comments, or professionalism:
 
 ---
 Comment :"${comment}"

@@ -61,7 +61,7 @@ If you don't have one, generate a Gemini AI API key from the [Google AI Studio](
 1. Navigate to your GitHub repository.
 2. Go to **Settings > Secrets and variables > Actions**.
 3. Click on **New repository secret**.
-4. For the **Name**, enter `GEMINI_API_KEY`.
+4. For the **Name**, enter `OPENAI_API_KEY`.
 5. For the **Secret**, paste your Gemini AI API key.
 6. Click **Add secret**.
 

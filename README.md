@@ -45,7 +45,7 @@ To integrate `pr-sanitizer` into your GitHub workflow:
            uses: ravikiran763/pr-sanitizer@v7 # Make sure to use the correct version tag
            with:
              token: ${{ secrets.GITHUB_TOKEN }}
-             geminiApiKey: ${{ secrets.GEMINI_API_KEY }} # Use geminiApiKey here
+             openaiApiKey: ${{ secrets.OPENAI_API_KEY }} # Use openaiApiKey here
              pr: ${{ github.event.pull_request.number }}
              repo: ${{ github.repository }}
    ```
